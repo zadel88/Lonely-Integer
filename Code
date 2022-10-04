@@ -1,0 +1,36 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+Given n as the length of the list
+a as a list
+n = 5
+a = [0, 0, 1, 2, 1]
+
+def lonelyinteger(a):
+    alone = 0
+    for i in range(n):
+        alone=alone^a[i]
+    return alone
+    #to see the detailed results of the code
+    #for i in range(n):
+    #    print(f"{alone = }", end="\t")
+    #    print(f"pre-XOR {alone = :08b}", end="\t")
+    #    alone = alone ^ a[i]
+    #print(f"post-XOR {alone = :08b}")
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    a = list(map(int, input().rstrip().split()))
+
+    result = lonelyinteger(a)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
